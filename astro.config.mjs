@@ -10,6 +10,8 @@ import rehypeKatex from "rehype-katex";
 
 import mdx from "@astrojs/mdx";
 
+const isGitHub = process.env.GITHUB_ACTIONS === "true";
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -32,6 +34,7 @@ export default defineConfig({
       rehypePlugins: [rehypeKatex],
     }),
   ],
+  output: "static",
   site: "https://colinthepanda.github.io",
-  base: "/ACSLContestSite/",
+  base: isGitHub ? "/ACSLContestSite/" : "/",
 });
