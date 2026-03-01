@@ -5,32 +5,48 @@ import contests from "@/data/contests.json";
 import VideoEmbed from "@/components/topic/VideoEmbed.astro";
 
 export async function getStaticPaths() {
-    const topics = await getCollection("topics");
-    return contests.flatMap(c =>
-        c.topics.map(t => {
-            const entry = topics.find(e => e.id === t.slug) ?? null;
-            return {
-                params: { slug: t.slug },
-                props: { entry, topic: t, contestNumber: c.number },
-            };
-        })
-    );
+  const topics = await getCollection("topics");
+  console.log(
+    "IDs:",
+    topics.map((e) => e.id),
+  );
+  return contests.flatMap((c) =>
+    c.topics.map((t) => {
+      const entry = topics.find((e) => e.id === t.slug) ?? null;
+      return {
+        params: { slug: t.slug },
+        props: { entry, topic: t, contestNumber: c.number },
+      };
+    }),
+  );
 }
 
 const { entry, topic, contestNumber } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const { Content } = entry ? await render(entry) : { Content: null };
 ---
 
 <Layout title={topic.title}>
   <div class="max-w-3xl mx-auto">
-    <a href={`/topics/${topic.slug}`} class="text-sm text-muted-foreground hover:text-primary flex items-center gap-1 mb-8">
+    <a
+      href={`${base}/topics/${topic.slug}`}
+      class="text-sm text-muted-foreground hover:text-primary flex items-center gap-1 mb-8"
+    >
       ← Back to {topic.title}
     </a>
-    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Contest {contestNumber}</p>
+    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">
+      Contest {contestNumber}
+    </p>
     <h1 class="text-3xl font-extrabold text-foreground mb-8">{topic.title}</h1>
     <div class="prose prose-invert max-w-none">
-      {Content ? <Content components={{ VideoEmbed }} /> : <p class="text-muted-foreground">Wiki content coming soon.</p>}
+      {
+        Content ? (
+          <Content components={{ VideoEmbed }} />
+        ) : (
+          <p class="text-muted-foreground">Wiki content coming soon.</p>
+        )
+      }
     </div>
   </div>
 </Layout>

@@ -6,24 +6,30 @@ import ResourceLinks from "@/components/topic/ResourceLinks.astro";
 import VideoEmbed from "@/components/topic/VideoEmbed.astro";
 
 export function getStaticPaths() {
-  const topics = contests.flatMap(c =>
-    c.topics.map(t => ({
+  const topics = contests.flatMap((c) =>
+    c.topics.map((t) => ({
       params: { slug: t.slug },
       props: { topic: t, contestNumber: c.number },
-    }))
+    })),
   );
   return topics;
 }
 
 const { topic, contestNumber } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <Layout title={topic.title}>
   <div class="max-w-3xl mx-auto">
-    <a href="/" class="text-sm text-muted-foreground hover:text-primary flex items-center gap-1 mb-8">
+    <a
+      href={`${base}/`}
+      class="text-sm text-muted-foreground hover:text-primary flex items-center gap-1 mb-8"
+    >
       ← All Contests
     </a>
-    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Contest {contestNumber}</p>
+    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">
+      Contest {contestNumber}
+    </p>
     <TopicHero title={topic.title} explanation={topic.explanation} />
     <ResourceLinks resources={topic.resources} slug={topic.slug} />
     {topic.videoId && <VideoEmbed videoId={topic.videoId} />}
