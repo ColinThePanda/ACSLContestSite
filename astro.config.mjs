@@ -11,6 +11,8 @@ import rehypeKatex from "rehype-katex";
 import mdx from "@astrojs/mdx";
 
 const isGitHub = process.env.GITHUB_ACTIONS === "true";
+console.log("process.env.GITHUB_ACTIONS:", process.env.GITHUB_ACTIONS);
+console.log("isGitHub:", isGitHub);
 
 // https://astro.build/config
 export default defineConfig({
