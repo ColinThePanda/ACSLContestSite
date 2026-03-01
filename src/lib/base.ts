@@ -1,4 +1,7 @@
-const isGitHub = import.meta.env.GITHUB_ACTIONS === "true";
+let base = "";
+if (import.meta.env.GITHUB_ACTIONS === "true") {
+  base = "/ACSLContestSite";
+}
 console.log("GITHUB_ACTIONS:", import.meta.env.GITHUB_ACTIONS);
-console.log("base:", isGitHub ? "/ACSLContestSite" : "");
-export const base = isGitHub ? "/ACSLContestSite" : "";
+console.log("base:", base);
+export { base };
