@@ -4,6 +4,7 @@ import Layout from "@/layouts/Layout.astro";
 import TopicHero from "@/components/topic/TopicHero.astro";
 import ResourceLinks from "@/components/topic/ResourceLinks.astro";
 import VideoEmbed from "@/components/topic/VideoEmbed.astro";
+import { base } from "@/lib/base";
 
 export function getStaticPaths() {
   const topics = contests.flatMap((c) =>
@@ -16,7 +17,6 @@ export function getStaticPaths() {
 }
 
 const { topic, contestNumber } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <Layout title={topic.title}>

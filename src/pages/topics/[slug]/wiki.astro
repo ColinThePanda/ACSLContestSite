@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import contests from "@/data/contests.json";
 import VideoEmbed from "@/components/topic/VideoEmbed.astro";
+import { base } from "@/lib/base";
 
 export async function getStaticPaths() {
   const topics = await getCollection("topics");
@@ -22,7 +23,6 @@ export async function getStaticPaths() {
 }
 
 const { entry, topic, contestNumber } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const { Content } = entry ? await render(entry) : { Content: null };
 ---

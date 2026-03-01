@@ -5,6 +5,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { base } from "@/lib/base";
 
 interface Topic {
   title: string;
@@ -18,9 +19,6 @@ interface Props {
 }
 
 const { number, topics } = Astro.props;
-// BASE_URL is "/" locally and "/ACSLContestSite/" on GitHub Pages
-// It always has a trailing slash, so don't add one before "topics"
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <div class="mt-8">
