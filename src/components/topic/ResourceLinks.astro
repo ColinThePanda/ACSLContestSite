@@ -1,0 +1,16 @@
+---
+import ResourceLink from "@/components/topic/ResourceLink.astro";
+
+interface Resource {
+  label: string;
+  url: string;
+}
+interface Props {
+  resources: Resource[];
+}
+const { resources } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-3 mb-8">
+  {resources.map((r) => <ResourceLink label={r.label} url={r.url} />)}
+</div>

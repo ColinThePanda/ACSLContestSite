@@ -1,0 +1,274 @@
+[
+  {
+    "number": 1,
+    "topics": [
+      {
+        "title": "What Does this Program Do?",
+        "description": "Binary, octal, hexadecimal",
+        "slug": "computer-number-systems",
+        "explanation": "This contest explores analyzing pseudo-code to determine what a program outputs when run.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://drive.google.com/file/d/1jkvt98eMHArqHu1lVZjFVhkO_cbJZ9GQ/view"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://drive.google.com/file/d/1FlJ3qp2mxo6CB6EjC389jlpqAVDkuHHi/view"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=What_Does_This_Program_Do%3F"
+          }
+        ],
+        "videoId": "LOLqFQxGYGo"
+      },
+      {
+        "title": "Computer Number Systems",
+        "description": "Binary, octal, hexadecimal",
+        "slug": "computer-number-systems",
+        "explanation": "This topic explores different base number systems, such as base two (binary), base eight (octal), and base 16 (hexadecimal). These bases in particular are useful in understanding computer science applications.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://drive.google.com/file/d/1jkvt98eMHArqHu1lVZjFVhkO_cbJZ9GQ/view"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://drive.google.com/file/d/1FlJ3qp2mxo6CB6EjC389jlpqAVDkuHHi/view"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=Computer_Number_Systems"
+          }
+        ],
+        "videoId": "DQ5LubT-v0I"
+      },
+      {
+        "title": "Recursion",
+        "description": "Recursive functions & tracing",
+        "slug": "recursion",
+        "explanation": "This topic explores recursion, or functions that call themselves. Rather than strictly code, the focus here is generally on arithemtically defined functions.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://drive.google.com/file/d/1X807234567890123456789012345678/view"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://drive.google.com/file/d/1Y807234567890123456789012345678/view"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=Recursion"
+          }
+        ],
+        "videoId": "HO_9zJbeCRA"
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "topics": [
+      {
+        "title": "Polish Notation",
+        "description": "Prefix & postfix expressions",
+        "slug": "polish-notation",
+        "explanation": "This topic explores Polish notation, a way of writing arithmetic expressions without parentheses.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://drive.google.com/file/d/1uKx1GD57OumVRnhLzV0mFdgineHLB3DF/view"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://drive.google.com/file/d/1VhUl6y4ixE3RCHPttxp14R237Y6HPJgt/view"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=Prefix/Infix/Postfix_Notation"
+          }
+        ],
+        "videoId": "hRtBAGhgdRM"
+      },
+      {
+        "title": "Bit-String Flicking",
+        "description": "Bit shifts & operations",
+        "slug": "bit-string-flicking",
+        "explanation": "Bit-String flicking involves performing operations on strings of 1s and 0s (bits). It is how binary data is manipulated.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://drive.google.com/file/d/1pO2SV50OXgr3_k0igoch2TYK8zbSAMcC/view"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://drive.google.com/file/d/1IRyqdWwmmxLkiG4C4maxZf_Hjm0ayoen/view"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=Bit-String_Flicking"
+          }
+        ],
+        "videoId": "bX1_UWoFmQA"
+      },
+      {
+        "title": "LISP",
+        "description": "List processing language",
+        "slug": "lisp",
+        "explanation": "LISP is an old programming language based on lists and expressions nested in parentheses. Like What Does This Program Do, the focus is on analyzing an expresion to determine the outcome of the code.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://drive.google.com/file/d/1M6GBzu5b2Y-7PV1k6jF28BIo4hvcmy7h/view"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://drive.google.com/file/d/1K_zX4COLZqWlbJitYbt3BHhwNs0Ocg5-/view"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=LISP"
+          }
+        ],
+        "videoId": "zoiIPoCBJ0s"
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "topics": [
+      {
+        "title": "Boolean Algebra",
+        "description": "Logic gates & simplification",
+        "slug": "boolean-algebra",
+        "explanation": "Boolean Algebra involves performing algebra, not on numbers, but on True and False values, known as boolean values.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://docs.google.com/document/d/1NN69CE9v8TJ5DWpDUShqkhjzJDAeX6J1/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://docs.google.com/document/d/1fDtzphkhlpKmME3Hspj0XQMX1I4bAOZk/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=Boolean_Algebra"
+          }
+        ],
+        "videoId": "k3FWIa8rt5U"
+      },
+      {
+        "title": "Data Structures",
+        "description": "Stacks, queues & trees",
+        "slug": "data-structures",
+        "explanation": "This topic involves operations on/interacting with data structures including trees, heaps, stacks, and queues.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://docs.google.com/document/d/1xOdVb5w1q3nyRDPTw5SsL4PftHg7q8NI/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://docs.google.com/document/d/1qOOlETll0bd4uMoD4Cxw91JSFFOFpQy6/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=Data_Structures"
+          }
+        ],
+        "videoId": "Z5obFuloIe4"
+      },
+      {
+        "title": "FSAs / Regex",
+        "description": "Finite state automata",
+        "slug": "fsa-regex",
+        "explanation": "This topic involves operations on FSAs and also knowing how to use Regular Expresions (regex) to parse strings.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://docs.google.com/document/d/1ErOgCqMqfytywQgECCIKRnYczcbiy_o3/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://docs.google.com/document/d/1HSZU0J6hMBro-yx4DdUERM0KrOd2ChQD/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=FSAs_and_Regular_Expressions"
+          }
+        ],
+        "videoId": "C7nn-OlWF10"
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "topics": [
+      {
+        "title": "Graph Theory",
+        "description": "Nodes, edges & traversals",
+        "slug": "graph-theory",
+        "explanation": "This topic involves graphs, a collection of nodes and edges which connect them. Think of a social media network, or roads that connect cities - graph theory is ubiqitous with modern computing.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://docs.google.com/document/d/1H-BSc7qAdHiXMCq7AGeHVE-sFYRj9shK/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://docs.google.com/document/d/1E3hfvZeIVpiXGIDPLRq9iGYkcIFek-iV/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=Graph_Theory"
+          }
+        ],
+        "videoId": "ZMtMSFX0Y8M"
+      },
+      {
+        "title": "Digital Electronics",
+        "description": "Circuits & logic design",
+        "slug": "digital-electronics",
+        "explanation": "This topic is essentially Boolean Algebra, but represented with symbols seen on a circuit diagram as opposed to represented mathematically.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://docs.google.com/document/d/1AJ21ppXtt_XERZJpwkumXRjNFY4_W9rN/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://docs.google.com/document/d/1YrkyO-rUYLOwL371bT4u2pViKVTIfI3d/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=Digital_Electronics"
+          }
+        ],
+        "videoId": "3Tym3GnEtXY"
+      },
+      { 
+        "title": "Assembly", 
+        "description": "Low-level programming",
+        "slug": "assembly",
+        "explanation": "As with WDTPD and LISP, this topic focuses on analyzing code written in the Assembly language, a very low-level language used in almost every computer. It's low-level nature may make it appear challenging.",
+        "resources": [
+          {
+            "label": "Problem Set",
+            "url": "https://docs.google.com/document/d/1pjKUBcDmYicz0LXGK-10FHDhWOSgesAa/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Solution Set",
+            "url": "https://docs.google.com/document/d/1_-0VFaqUFfUtrkHEDQMiItRSV1b7PBzz/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
+          },
+          {
+            "label": "Wiki Page",
+            "url": "https://www.categories.acsl.org/wiki/index.php?title=Assembly_Language_Programming"
+          }
+        ],
+        "videoId": "qHlKKZIxgYI"
+      }
+    ]
+  }
+]

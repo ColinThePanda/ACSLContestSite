@@ -1,0 +1,13 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/Hero.astro";
+import ContestSection from "@/components/ContestSection.astro";
+import contests from "@/data/contests.json";
+---
+
+<Layout title="Home">
+  <Hero />
+  {contests.map((c) => (
+    <ContestSection number={c.number} topics={c.topics} />
+  ))}
+</Layout>

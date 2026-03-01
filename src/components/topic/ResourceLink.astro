@@ -1,0 +1,10 @@
+---
+interface Props {
+  label: string;
+  url: string;
+}
+const { label, url } = Astro.props;
+---
+<a href={url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-border text-sm text-primary hover:bg-muted transition-colors">
+  {label} ↗
+</a>
