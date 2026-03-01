@@ -5,7 +5,7 @@
       {
         "title": "What Does this Program Do?",
         "description": "Binary, octal, hexadecimal",
-        "slug": "computer-number-systems",
+        "slug": "what-does-this-program-do",
         "explanation": "This contest explores analyzing pseudo-code to determine what a program outputs when run.",
         "resources": [
           {
@@ -15,10 +15,6 @@
           {
             "label": "Solution Set",
             "url": "https://drive.google.com/file/d/1FlJ3qp2mxo6CB6EjC389jlpqAVDkuHHi/view"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=What_Does_This_Program_Do%3F"
           }
         ],
         "videoId": "LOLqFQxGYGo"
@@ -36,18 +32,14 @@
           {
             "label": "Solution Set",
             "url": "https://drive.google.com/file/d/1FlJ3qp2mxo6CB6EjC389jlpqAVDkuHHi/view"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=Computer_Number_Systems"
           }
         ],
         "videoId": "DQ5LubT-v0I"
       },
       {
-        "title": "Recursion",
+        "title": "Recursive Functions",
         "description": "Recursive functions & tracing",
-        "slug": "recursion",
+        "slug": "recursive-functions",
         "explanation": "This topic explores recursion, or functions that call themselves. Rather than strictly code, the focus here is generally on arithemtically defined functions.",
         "resources": [
           {
@@ -57,10 +49,6 @@
           {
             "label": "Solution Set",
             "url": "https://drive.google.com/file/d/1Y807234567890123456789012345678/view"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=Recursion"
           }
         ],
         "videoId": "HO_9zJbeCRA"
@@ -83,10 +71,6 @@
           {
             "label": "Solution Set",
             "url": "https://drive.google.com/file/d/1VhUl6y4ixE3RCHPttxp14R237Y6HPJgt/view"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=Prefix/Infix/Postfix_Notation"
           }
         ],
         "videoId": "hRtBAGhgdRM"
@@ -104,10 +88,6 @@
           {
             "label": "Solution Set",
             "url": "https://drive.google.com/file/d/1IRyqdWwmmxLkiG4C4maxZf_Hjm0ayoen/view"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=Bit-String_Flicking"
           }
         ],
         "videoId": "bX1_UWoFmQA"
@@ -125,10 +105,6 @@
           {
             "label": "Solution Set",
             "url": "https://drive.google.com/file/d/1K_zX4COLZqWlbJitYbt3BHhwNs0Ocg5-/view"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=LISP"
           }
         ],
         "videoId": "zoiIPoCBJ0s"
@@ -151,10 +127,6 @@
           {
             "label": "Solution Set",
             "url": "https://docs.google.com/document/d/1fDtzphkhlpKmME3Hspj0XQMX1I4bAOZk/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=Boolean_Algebra"
           }
         ],
         "videoId": "k3FWIa8rt5U"
@@ -172,10 +144,6 @@
           {
             "label": "Solution Set",
             "url": "https://docs.google.com/document/d/1qOOlETll0bd4uMoD4Cxw91JSFFOFpQy6/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=Data_Structures"
           }
         ],
         "videoId": "Z5obFuloIe4"
@@ -193,10 +161,6 @@
           {
             "label": "Solution Set",
             "url": "https://docs.google.com/document/d/1HSZU0J6hMBro-yx4DdUERM0KrOd2ChQD/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=FSAs_and_Regular_Expressions"
           }
         ],
         "videoId": "C7nn-OlWF10"
@@ -219,10 +183,6 @@
           {
             "label": "Solution Set",
             "url": "https://docs.google.com/document/d/1E3hfvZeIVpiXGIDPLRq9iGYkcIFek-iV/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=Graph_Theory"
           }
         ],
         "videoId": "ZMtMSFX0Y8M"
@@ -240,10 +200,6 @@
           {
             "label": "Solution Set",
             "url": "https://docs.google.com/document/d/1YrkyO-rUYLOwL371bT4u2pViKVTIfI3d/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=Digital_Electronics"
           }
         ],
         "videoId": "3Tym3GnEtXY"
@@ -261,10 +217,6 @@
           {
             "label": "Solution Set",
             "url": "https://docs.google.com/document/d/1_-0VFaqUFfUtrkHEDQMiItRSV1b7PBzz/edit?usp=sharing&ouid=109381087445749512042&rtpof=true&sd=true"
-          },
-          {
-            "label": "Wiki Page",
-            "url": "https://www.categories.acsl.org/wiki/index.php?title=Assembly_Language_Programming"
           }
         ],
         "videoId": "qHlKKZIxgYI"

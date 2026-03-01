@@ -1,0 +1,201 @@
+---
+title: "Digital Electronics"
+slug: "digital-electronics"
+---
+
+A digital circuit is constructed from logic gates. Each logic gate performs a function of boolean logic based on its inputs, such as AND or OR. Each circuit can be represented as a Boolean Algebra expression; this topic is an extension of Boolean Algebra, which includes a thorough description of truth tables and simplifying expressions.
+
+## Definitions
+
+The following table illustrates all logic gates with their equivalent Boolean algebra expression and truth table.
+
+### BUFFER
+**Expression:** $X = A$
+
+| INPUT | OUTPUT |
+|:---:|:---:|
+| 0 | 0 |
+| 1 | 1 |
+
+---
+
+### NOT
+**Expression:** $X = \overline{A}$ or $\neg A$
+
+| A | X |
+|:---:|:---:|
+| 0 | 1 |
+| 1 | 0 |
+
+---
+
+### AND
+**Expression:** $X = AB$ or $X = A \cdot B$
+
+| A | B | X |
+|:---:|:---:|:---:|
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+
+---
+
+### NAND
+**Expression:** $X = \overline{AB}$ or $X = \overline{A \cdot B}$
+
+| A | B | X |
+|:---:|:---:|:---:|
+| 0 | 0 | 1 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 0 |
+
+---
+
+### OR
+**Expression:** $X = A + B$
+
+| A | B | X |
+|:---:|:---:|:---:|
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 1 |
+
+---
+
+### NOR
+**Expression:** $X = \overline{A + B}$
+
+| A | B | X |
+|:---:|:---:|:---:|
+| 0 | 0 | 1 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 0 |
+
+---
+
+### XOR
+**Expression:** $X = A \oplus B$
+
+| A | B | X |
+|:---:|:---:|:---:|
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 0 |
+
+---
+
+### XNOR
+**Expression:** $X = \overline{A \oplus B}$ or $A \odot B$
+
+| A | B | X |
+|:---:|:---:|:---:|
+| 0 | 0 | 1 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+
+Note that there is some ambiguity in the conversion from a diagram to a circuit. For example, is $\overline{A+B}$ an OR gate followed by a NOT gate, or simply a NOR gate.
+
+## Online Tools
+
+The [Logisim](http://www.cburch.com/logisim/index.html) application is a wonderful tool for exploring this topic. Logisim is free to download and use; among its many features is support to automatically draw a circuit from a Boolean Algebra expression, simulate the circuit with arbitrary inputs, and complete a truth table for the circuit. You can also import the circuit for Sample Problem 1 from [this file](http://www.acsl.org/misc/wiki-digital-electronics-sample1.circ). There are many YouTube videos that show how to use Logisim, including a [4 minute tutorial](https://www.youtube.com/watch?v=cMz7wyY_PxE).
+
+## Sample Problems
+
+### Sample Problem 1
+
+Find all ordered triplets (A, B, C) which make the following circuit FALSE:
+
+*(Circuit diagram: NAND gate on inputs A, B; output fed into OR gate with input C)*
+
+**Solution:**
+
+One approach is to reason about what inputs and outputs are necessary at each gate. For the circuit to be FALSE, both inputs to the final OR gate must be false. Thus, input C must be FALSE, and the output of the NAND gate must also be false. The NAND gate is false only when both of its inputs are TRUE; thus A and B must both be TRUE. The final answer is **(1, 1, 0)**.
+
+Another approach is to translate the circuit into a Boolean expression: $\overline{AB}+C$. To find when this is FALSE, we find when $\overline{\overline{AB}+C}$ is TRUE. Applying DeMorgan's Law gives $\overline{\overline{AB}} \cdot \overline{C}$, which simplifies to $AB\overline{C}$. This is TRUE only when A=1, B=1, C=0.
+
+---
+
+### Sample Problem 2
+
+How many ordered 4-tuples (A, B, C, D) make the following circuit TRUE?
+
+*(Circuit diagram — see wiki page)*
+
+**Solution:** Using a truth table with intermediate gate outputs labeled p through t:
+
+| A | B | C | D | $p=\overline{C+D}$ | $q=p+\overline{B}$ | $r=\overline{A}B$ | $s=r \oplus q$ | $t=s \oplus p$ |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0 | 0 | 0 | 0 | 1 | 1 | 0 | 1 | 0 |
+| 0 | 0 | 0 | 1 | 0 | 1 | 0 | 1 | 1 |
+| 0 | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 1 |
+| 0 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 0 | 1 | 1 | 1 | 0 | 1 |
+| 0 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 0 | 0 | 1 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 0 | 1 | 1 | 0 | 1 | 0 |
+| 1 | 0 | 0 | 1 | 0 | 1 | 0 | 1 | 1 |
+| 1 | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 1 |
+| 1 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 1 |
+| 1 | 1 | 0 | 0 | 1 | 1 | 0 | 1 | 0 |
+| 1 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
+
+There are **10** rows where the final output t is TRUE.
+
+---
+
+### Sample Problem 3
+
+Simplify the Boolean expression that this circuit represents.
+
+*(Circuit diagram — see wiki page)*
+
+**Solution:**
+
+$$(\overline{A}(A+B))\overline{B+C}$$
+$$=(\overline{A}A+\overline{A}B)\overline{B}\overline{C}$$
+$$=(0+\overline{A}B)\overline{B}\overline{C}$$
+$$=\overline{A}B\overline{B}\overline{C}$$
+$$=0$$
+
+## Video Resources
+
+### ACSL Advisors
+
+<VideoEmbed videoId="gxil9VyGTtE" />
+
+**Digital Electronics -1** (Ravi Yeluru) — Introduces the AND, OR, and NOT gates, and works through a couple of simple circuits.
+
+<VideoEmbed videoId="m7-wa5ca_G8" />
+
+**Digital Electronics -2** (Ravi Yeluru) — Solves a 3-gate circuit given by the Boolean expression $(\overline{A}+B)(\overline{B+C})$.
+
+<VideoEmbed videoId="Eckd5UlJmB4" />
+
+**Digital Electronics Boolean Algebra** (Tangerine Code) — Solves a 3-gate circuit given by the Boolean expression $\overline{(A+B)}(B+C)$.
+
+<VideoEmbed videoId="JJL6DsVCpHo" />
+
+**ACSL Digital Electronics Worksheet Sample** (misterminich) — Solves a handful of ACSL problems.
+
+### Other Videos
+
+<VideoEmbed videoId="s2MI_NgKD98" />
+
+**Digital Electronics Basics** (Beginning Electronics)
+
+<VideoEmbed videoId="z9s8A8oBe7g" />
+
+**Logic Gate Expressions** (Kevin Drumm)
+
+<VideoEmbed videoId="eroqZpbKrhc" />
+
+**Determining the truth table and logic statement** (Anna does some physics) — Uses a truth table to find the inputs that make the circuit $\overline{(A+B)}+(AB)$ true.

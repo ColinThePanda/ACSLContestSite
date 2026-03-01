@@ -1,0 +1,246 @@
+---
+title: "Boolean Algebra"
+slug: "boolean-algebra"
+---
+
+*Boolean algebra* is the branch of algebra in which the values of the
+variables and constants have exactly two values: *true* and *false*,
+usually denoted 1 and 0 respectively.
+
+## Operators
+
+The basic operators in Boolean algebra are **AND**, **OR**, and **NOT**.
+The secondary operators are *eXclusive OR* (often called **XOR**) and
+*eXclusive NOR* (**XNOR**, sometimes called **equivalence**). They are
+secondary in the sense that they can be composed from the basic
+operators.
+
+- The **AND** of two values is true only whenever both values are true.
+  It is written as $xy$ or $x \cdot y$. The values of *and* for all
+  possible inputs is shown in the following truth table:
+
+| $x$ | $y$ | $xy$ |
+|:---:|:---:|:----:|
+| 0   | 0   | 0    |
+| 0   | 1   | 0    |
+| 1   | 0   | 0    |
+| 1   | 1   | 1    |
+
+- The **OR** of two values is true whenever either or both values are
+  true. It is written as $x+y$. The values of *or* for all possible
+  inputs is shown in the following truth table:
+
+| $x$ | $y$ | $x + y$ |
+|:---:|:---:|:-------:|
+| 0   | 0   | 0       |
+| 0   | 1   | 1       |
+| 1   | 0   | 1       |
+| 1   | 1   | 1       |
+
+- The **NOT** of a value is its opposite; that is, the *not* of a true
+  value is false whereas the *not* of a false value is true. It is
+  written as $\overline{x}$ or $\neg{x}$. The values of *not* for all
+  possible inputs is shown in the following truth table:
+
+| $x$ | $\overline{x}$ |
+|:---:|:--------------:|
+| 0   | 1              |
+| 1   | 0              |
+
+- The **XOR** of two values is true whenever the values are different.
+  It uses the $\oplus$ operator, and can be built from the basic
+  operators: $x \oplus y = x\ \overline{y}\ \ +\ \overline{x}\ \ y$.
+  The values of *xor* for all possible inputs is shown in the following
+  truth table:
+
+| $x$ | $y$ | $x \oplus y$ |
+|:---:|:---:|:------------:|
+| 0   | 0   | 0            |
+| 0   | 1   | 1            |
+| 1   | 0   | 1            |
+| 1   | 1   | 0            |
+
+- The **XNOR** of two values is true whenever the values are the same.
+  It is the **NOT** of the **XOR** function. It uses the $\odot$
+  operator: $x \odot y = \overline{x \oplus y}$. The *xnor* can be
+  built from basic operators: $x \odot y = x y + \overline{x} \overline{y}$.
+  The values of *xnor* for all possible inputs is shown in the following
+  truth table:
+
+| $x$ | $y$ | $x \odot y$ |
+|:---:|:---:|:-----------:|
+| 0   | 0   | 1           |
+| 0   | 1   | 0           |
+| 1   | 0   | 0           |
+| 1   | 1   | 1           |
+
+Just as algebra has basic rules for simplifying and evaluating
+expressions, so does Boolean algebra.
+
+## Why is Boolean Algebra Important for ACSL Students?
+
+Boolean algebra is important to programmers, computer scientists, and
+the general population.
+
+- For programmers, Boolean expressions are used for conditionals and
+  loops. For example, the following snippet of code sums the even
+  numbers that are not also multiples of 3, stopping when the sum hits
+  100:
+
+```python
+s = 0
+x = 1
+while (s < 100):
+    if (x % 2 == 0) and (x % 3 != 0)
+        then s = s + x
+    x = x + 1
+```
+
+Both the conditional statement `s < 100` and the Boolean expression
+`(x % 2 == 0) and (x % 3 != 0)` evaluate to *true* or *false*.
+
+- For computer scientists, Boolean algebra is the basis for digital
+  circuits that make up a computer's hardware. The [Digital
+  Electronics](/digital-electronics) category concerns a graphical
+  representation of a circuit. That circuit is typically easiest to
+  understand and evaluate by converting it to its Boolean algebra
+  representation.
+
+- The general population uses Boolean algebra, probably without knowing
+  that they are doing so, when they enter search terms in Internet
+  search engines. For example, the search expression *jaguar speed -car*
+  is parsed by the search engine as the Boolean expression
+  `"jaguar" and "car" and not "speed"`; it returns pages about the speed
+  of the jaguar animal, not the Jaguar car.
+
+## Laws
+
+A **law** of Boolean algebra is an identity such as
+$x + (y + z) = (x + y) + z$ between two Boolean terms, where a **Boolean
+term** is defined as an expression built up from variables, the
+constants 0 and 1, and operations *and*, *or*, *not*, *xor*, and *xnor*.
+
+Like ordinary algebra, parentheses are used to group terms. When a *not*
+is represented with an overhead horizontal line, there is an implicit
+grouping of the terms under the line. That is, $x \cdot \overline{y + z}$
+is evaluated as if it were written $x \cdot \overline{(y + z)}$.
+
+### Order of Precedence
+
+The order of operator precedence is *not*; then *and*; then *xor* and
+*xnor*; and finally *or*. Operators with the same level of precedence
+are evaluated from left-to-right.
+
+### Fundamental Identities
+
+| Law | OR form | AND form |
+|-----|---------|----------|
+| **Commutative** — The order of application of two separate terms is not important. | $x+y = y+x$ | $x \cdot y = y \cdot x$ |
+| **Associative** — Regrouping of the terms in an expression doesn't change the value of the expression. | $(x + y) + z = x + (y + z)$ | $x \cdot (y \cdot z) = (x \cdot y) \cdot z$ |
+| **Idempotent** — A term that is *or*'ed or *and*'ed with itself is equal to that term. | $x + x = x$ | $x \cdot x = x$ |
+| **Annihilator** — A term that is *or*'ed with 1 is 1; a term *and*'ed with 0 is 0. | $x + 1 = 1$ | $x \cdot 0 = 0$ |
+| **Identity** — A term *or*'ed with 0 or *and*'ed with a 1 will always equal that term. | $x + 0 = x$ | $x \cdot 1 = x$ |
+| **Complement** — A term *or*'ed with its complement equals 1 and a term *and*'ed with its complement equals 0. | $x + \overline{x} = 1$ | $x \cdot \overline{x} = 0$ |
+| **Absorptive** — Complex expressions can be reduced to simpler ones by absorbing like terms. | $x + xy = x$ | $x(x+y) = x$ |
+| | $x + \overline{x}y = x + y$ | |
+| **Distributive** — It's OK to multiply or factor-out an expression. | $x \cdot (y + z) = xy + xz$ | $(x+y) \cdot (p+q) = xp + xq + yp + yq$ |
+| | $(x+y)(x+z) = x + yz$ | |
+| **DeMorgan's** — An *or* (*and*) expression that is negated is equal to the *and* (*or*) of the negation of each term. | $\overline{x+y} = \overline{x} \cdot \overline{y}$ | $\overline{x \cdot y} = \overline{x} + \overline{y}$ |
+| **Double Negation** — A term that is inverted twice is equal to the original term. | $\overline{\overline{x}} = x$ | |
+| **XOR / XNOR relationship** | $x \odot y = \overline{x \oplus y} = x \oplus \overline{y} = \overline{x} \oplus y$ | |
+
+## Sample Problems
+
+Problems in this category are typically of the form "Given a Boolean
+expression, simplify it as much as possible" or "Given a Boolean
+expression, find the values of all possible inputs that make the
+expression *true*." Simplify means writing an equivalent expression
+using the fewest number of operators.
+
+### Problem 1: Simplify the Expression
+
+**Problem:** Simplify the following expression as much as possible:
+$\overline{ \overline{A(A+B)} + B\overline{A}}$
+
+**Solution:**
+
+$$\overline{ \overline{A(A+B)} + B\overline{A}}$$
+
+$$= \left(\overline{ \overline{A(A+B)}}\right) \cdot \left(\overline{ B\overline{A}}\right) \quad \text{(DeMorgan's Law)}$$
+
+$$= \left(A(A+B)\right) \cdot \left( \overline{B}+\overline{\overline{A}}\right) \quad \text{(Double Negation; DeMorgan's Law)}$$
+
+$$= A \cdot \left( \overline{B}+A\right) \quad \text{(Absorption; Double Negation)}$$
+
+$$= A \quad \text{(Absorption)}$$
+
+### Problem 2: Find Solutions
+
+**Problem:** Find all ordered pairs $(A,B)$ that make the following
+expression *true*: $\overline{ \overline{(A+B)} + \overline{A}B }$
+
+**Solution:**
+
+There are typically two approaches to solving this type of problem. One
+approach is to simplify the expression as much as possible, until it's
+obvious what the solutions are. The other approach is to create a truth
+table of all possible inputs, with columns for each subexpression.
+
+The simplification approach is as follows:
+
+$$\overline{\overline{(A+B)} + \overline{A}B}$$
+
+$$= \overline{\overline{A+B}} \cdot \overline{\overline{A}B}$$
+
+$$= (A+B) \cdot (\overline{\overline{A}}+\overline{B})$$
+
+$$= (A+B) \cdot (A+\overline{B})$$
+
+$$= AA + A\overline{B} + BA + B\overline{B}$$
+
+$$= A + A(\overline{B} + B) + 0$$
+
+$$= A + A(1) = A + A = A$$
+
+This means that all inputs are valid whenever $A$ is *true*: $(1,0)$ and $(1,1)$.
+
+The truth table approach is as follows. Each column is the result of a
+basic operation on two other columns.
+
+| $A$ | $B$ | $A+B$ | $\overline{A+B}$ | $\overline{A}$ | $\overline{A}B$ | $\overline{A+B} + \overline{A}B$ | $\overline{\overline{A+B} + \overline{A}B}$ |
+|:---:|:---:|:-----:|:----------------:|:--------------:|:---------------:|:--------------------------------:|:-------------------------------------------:|
+| 0   | 0   | 0     | 1                | 1              | 0               | 1                                | **0**                                       |
+| 0   | 1   | 1     | 0                | 1              | 1               | 1                                | **0**                                       |
+| 1   | 0   | 1     | 0                | 0              | 0               | 0                                | **1**                                       |
+| 1   | 1   | 1     | 0                | 0              | 0               | 0                                | **1**                                       |
+
+The rightmost column is the expression we are solving; it is *true* for
+the 3rd and 4th rows, where the inputs are $(1,0)$ and $(1,1)$.
+
+## Online Resources
+
+### Websites
+
+A great online tutorial on Boolean Algebra is part of [Ryan's
+Tutorials](https://ryanstutorials.net/boolean-algebra-tutorial/). There
+are many online Boolean Calculators. This one gives Truth Tables:
+[calculator](https://sheabunge.github.io/boolcalc/). This link
+simplifies and uses ! for NOT:
+[calculator](https://www.boolean-algebra.com/).
+
+### Videos
+
+The following YouTube videos show ACSL students and advisors working out
+some previous problems. Some of the videos contain ads; ACSL is not
+responsible for the ads and does not receive compensation in any form
+for those ads.
+
+<VideoEmbed videoId="HJdhEjpVYsY" />
+
+<VideoEmbed videoId="4io6xgz8Zwk" />
+
+<VideoEmbed videoId="6vI1mO1XOjQ" />
+
+<VideoEmbed videoId="KRKTbAZYlLM" />
+
+<VideoEmbed videoId="jDnni-zm2g8" />

@@ -1,0 +1,116 @@
+---
+title: "What Does This Program Do?"
+slug: "what-does-this-program-do"
+---
+
+Frequently, one must use or modify sections of another programmer's code. Since the original author is often unavailable to explain his/her code, and documentation is unfortunately not always available or sufficient, it is essential to be able to read and understand an arbitrary program.
+
+This category presents a program and asks the student to determine what the program does. The programs are written using a pseudocode that should be readily understandable by all programmers familiar with a high-level programming language, such as Python, Java, or C.
+
+## Description of the ACSL Pseudo-code
+
+| Construct | Description |
+|---|---|
+| Operators | `!` (not), `^` or `↑` (exponent), `*`, `/` (real division), `%` (modulus), `+`, `-`, `>`, `=`, `<`, `>=`, `<=`, `!=` |
+| Assignment | `variable = expression` |
+| Input/Output | `input variable`, `output expression` |
+| If statement | `if condition then ... end if` |
+| If/Else | `if condition then ... else ... end if` |
+| For loop | `for var = start to end step n ... next var` |
+| While loop | `while condition ... end while` |
+| Arrays | `A(i)` — 0-indexed |
+| Strings | `a[i]` — 0-indexed, `len(a)` for length |
+| Functions | `def name(params) ... end def` |
+
+## Sample Problems
+
+### Problem 1
+
+What does the following program output when `h = 50` and `r = 10`?
+
+```
+input h, r
+b = 0
+if h > 48 then
+    b = b + (h - 48) * 2 * r
+    h = 48
+end if
+if h > 40 then
+    b = b + (h - 40) * (3/2) * r
+    h = 40
+end if
+b = b + h * r
+output b
+```
+
+**Solution:** This program computes an employee's weekly salary given the hourly rate (`r`) and hours worked (`h`). The employee is paid regular rate up to 40 hours, time and a half up to 48 hours, and double for all hours over 48.
+
+| b | h |
+|---|---|
+| 0 | 50 |
+| 40 | 48 |
+| 160 | 40 |
+| 560 | 40 |
+
+Therefore, the final value of `b` is `2*2*10 + 8*(3/2)*10 + 40*10 = 40 + 120 + 400 = 560`.
+
+---
+
+### Problem 2
+
+After the following program is executed, what is the final value of `num`?
+
+```
+a = "BANANAS"
+num = 0; t = ""
+for j = len(a)-1 to 0 step -1
+    t = t + a[j]
+next j
+for j = 0 to len(a) - 1
+    if a[j] == t[j] then
+        num = num + 1
+    end if
+next j
+```
+
+**Solution:** The program first stores the reverse of string `a` into string `t`, then counts the number of letters that are in the same position in both strings. There are 5 such positions: 1, 2, 3, 4, and 5. So `num = 5`.
+
+---
+
+### Problem 3
+
+After the following program is executed, what is the final value of `C(4)`?
+
+```
+A(0) = 12; A(1) = 41; A(2) = 52
+A(3) = 57; A(4) = 77; A(5) = -100
+B(0) = 17; B(1) = 34; B(2) = 81
+j = 0; k = 0; n = 0
+while A(j) > 0
+    while B(k) < A(j)
+        C(n) = B(k)
+        n = n + 1; k = k + 1
+    end while
+    C(n) = A(j)
+    n = n + 1; j = j + 1
+end while
+```
+
+**Solution:** The following table traces the variables through execution:
+
+| j | k | n | A(j) | B(k) | C(n) |
+|---|---|---|------|------|------|
+| 0 | 0 | 0 | 12 | 17 | 12 |
+| 1 | 0 | 1 | 41 | 17 | 17 |
+| 1 | 1 | 2 | 41 | 34 | 34 |
+| 1 | 2 | 3 | 41 | 81 | 41 |
+| 2 | 2 | 4 | 52 | 81 | 52 |
+| 3 | 2 | 5 | 57 | 81 | 57 |
+| 4 | 2 | 6 | 77 | 81 | 77 |
+| 5 | 2 | 7 | -100 | 81 | 81 |
+
+Thus, `C(4) = 52`. This program merges two arrays in increasing order into one array until a negative number is encountered.
+
+## Video Resources
+
+<VideoEmbed videoId="IBlXLEWeHjc" />

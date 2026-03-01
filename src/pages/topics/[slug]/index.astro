@@ -25,7 +25,7 @@ const { topic, contestNumber } = Astro.props;
     </a>
     <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Contest {contestNumber}</p>
     <TopicHero title={topic.title} explanation={topic.explanation} />
-    <ResourceLinks resources={topic.resources} />
+    <ResourceLinks resources={topic.resources} slug={topic.slug} />
     {topic.videoId && <VideoEmbed videoId={topic.videoId} />}
   </div>
 </Layout>

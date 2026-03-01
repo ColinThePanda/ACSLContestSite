@@ -1,0 +1,211 @@
+---
+title: "Recursive Functions"
+slug: "recursive-functions"
+---
+
+A definition that defines an object in terms of itself is said to be
+*recursive*. In computer science, recursion refers to a function or
+subroutine that calls itself, and it is a fundamental paradigm in
+programming. A recursive program is used for solving problems that can
+be broken down into sub-problems of the same type, doing so until the
+problem is easy enough to solve directly.
+
+## Examples
+
+### Fibonacci Numbers
+
+A common recursive function that you've probably encountered is the
+Fibonacci numbers: 0, 1, 1, 2, 3, 5, 8, 13, and so on. You get the
+next Fibonacci number by adding the previous two. Mathematically:
+
+$$
+f(N) = f(N-1) + f(N-2)
+$$
+
+To be formal about this, we need to define when the recursion stops —
+called the *base cases*. The base cases for the Fibonacci function are
+$f(0) = 0$ and $f(1) = 1$. The typical way to write this function is:
+
+$$
+f(N) = \begin{cases}
+N & \text{if } N \le 1 \\
+f(N-1) + f(N-2) & \text{if } N > 1
+\end{cases}
+$$
+
+Here is a Python implementation of the Fibonacci function:
+
+```python
+def Fibonacci(x):
+  if (x <= 1): return x
+  return Fibonacci(x-1) + Fibonacci(x-2)
+```
+
+### Factorial Function
+
+Consider the factorial function, $n! = n \times (n-1) \times \cdots \times 1$,
+with $0!$ defined as 1. We can define this recursively as:
+
+$$
+f(x) = \begin{cases}
+1 & \text{if } x = 0 \\
+x \times f(x-1) & \text{if } x > 0
+\end{cases}
+$$
+
+Here is a Python implementation:
+
+```python
+def Factorial(x):
+  if (x == 0): return 1
+  return x * Factorial(x-1)
+```
+
+### Some Definitions
+
+- *Indirect recursion* is when a function calls another function which eventually calls the original function.
+- *Single recursion* is recursion with a single self-reference, such as the factorial example above.
+- *Multiple recursion*, illustrated by the Fibonacci function, is when a function has multiple self-references.
+- *Infinite recursion* is a recursive function that never returns because it keeps calling itself; the program will eventually crash with an out-of-memory error.
+
+This ACSL category focuses on mathematical recursive functions rather
+than programming algorithms. While many mathematical functions can be
+computed iteratively more efficiently, many computer science algorithms
+must be written recursively.
+
+## Sample Problems
+
+You will typically be asked to evaluate a recursive function for some
+specific value. Work your way down the recursive calls until there are
+no more calls, and then work your way back up.
+
+### Sample Problem 1
+
+**Problem:** Find $g(11)$ given the following:
+
+$$
+g(x) = \begin{cases}
+g(x-3)+1 & \text{if } x > 0 \\
+3x & \text{otherwise}
+\end{cases}
+$$
+
+**Solution:**
+
+Working top-down:
+
+$$
+\begin{align}
+g(11) &= g(8)+1 \\
+g(8)  &= g(5)+1 \\
+g(5)  &= g(2)+1 \\
+g(2)  &= g(-1)+1 \\
+g(-1) &= -3
+\end{align}
+$$
+
+Working back up:
+
+- $g(2) = -3 + 1 = -2$
+- $g(5) = -2 + 1 = -1$
+- $g(8) = -1 + 1 = 0$
+- $g(11) = 0 + 1 = \mathbf{1}$
+
+### Sample Problem 2
+
+**Problem:** Find the value of $h(13)$ given the following definition:
+
+$$
+h(x) = \begin{cases}
+h(x-7)+1 & \text{when } x > 5 \\
+x & \text{when } 0 \le x \le 5 \\
+h(x+3) & \text{when } x < 0
+\end{cases}
+$$
+
+**Solution:**
+
+$$
+\begin{align}
+h(13) &= h(6)+1  & \text{(top rule, since } x > 5 \text{)} \\
+h(6)  &= h(-1)+1 & \text{(top rule, since } x > 5 \text{)} \\
+h(-1) &= h(2)    & \text{(bottom rule, since } x < 0 \text{)} \\
+h(2)  &= 2       & \text{(middle rule, since } 0 \le x \le 5 \text{)}
+\end{align}
+$$
+
+Working back up:
+
+- $h(-1) = h(2) = 2$
+- $h(6) = h(-1) + 1 = 3$
+- $h(13) = h(6) + 1 = \mathbf{4}$
+
+### Sample Problem 3
+
+**Problem:** Find the value of $f(12, 6)$ given the following definition:
+
+$$
+f(x,y) = \begin{cases}
+f(x-y,\, y-1)+2 & \text{when } x > y \\
+x+y & \text{otherwise}
+\end{cases}
+$$
+
+**Solution:**
+
+$$
+\begin{align}
+f(12,6) &= f(6,5)+2 & \text{(top rule, since } x > y \text{)} \\
+f(6,5)  &= f(1,4)+2 & \text{(top rule, since } x > y \text{)} \\
+f(1,4)  &= 1+4 = 5  & \text{(bottom rule, since } x \le y \text{)}
+\end{align}
+$$
+
+Working back up:
+
+$$
+f(12,6) = f(6,5) + 2 = f(1,4) + 2 + 2 = 5 + 2 + 2 = \mathbf{9}
+$$
+
+### Sample Problem 4
+
+**Problem:** Consider the following recursive algorithm for painting a
+square:
+
+1. Given a square.
+2. If the length of a side is less than 2 feet, then stop.
+3. Divide the square into 4 equal size squares (draw a "plus" sign inside the square).
+4. Paint one of these 4 small squares.
+5. Repeat this procedure for each of the 3 unpainted squares.
+
+If this algorithm is applied to a square with a side of 16 feet (total
+area 256 sq. feet), how many square feet will be painted?
+
+**Solution:**
+
+| Pass | Unpainted squares entering | Squares painted | Side length | Area painted |
+|------|---------------------------|-----------------|:-----------:|:------------:|
+| 1 | 1 | 1 | 8 ft | $1 \times 8^2 = 64$ |
+| 2 | 3 | 3 | 4 ft | $3 \times 4^2 = 48$ |
+| 3 | 9 | 9 | 2 ft | $9 \times 2^2 = 36$ |
+| 4 | 27 | 27 | 1 ft | $27 \times 1^2 = 27$ |
+
+Total painted: $64 + 48 + 36 + 27 = \mathbf{175}$ sq. feet.
+
+## Online Resources
+
+### ACSL
+
+<VideoEmbed videoId="YinptBVZNFM" />
+
+<VideoEmbed videoId="OjZSIXStSr8" />
+
+<VideoEmbed videoId="MWdGTVCLI8g" />
+
+<VideoEmbed videoId="5P5iK-5heEc" />
+
+### Other Videos
+
+<VideoEmbed videoId="LdNdfPhwCP4" />
+
+<VideoEmbed videoId="dxyYP3BSdcQ" />

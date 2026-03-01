@@ -7,10 +7,14 @@ interface Resource {
 }
 interface Props {
   resources: Resource[];
+  slug: string;
 }
-const { resources } = Astro.props;
+const { resources, slug } = Astro.props;
 ---
 
 <div class="flex flex-wrap gap-3 mb-8">
   {resources.map((r) => <ResourceLink label={r.label} url={r.url} />)}
+  <a href={`/topics/${slug}/wiki`} class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-border text-sm text-primary hover:bg-muted transition-colors">
+    Wiki Page ↗
+  </a>
 </div>

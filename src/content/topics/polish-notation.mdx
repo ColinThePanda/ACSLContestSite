@@ -1,0 +1,149 @@
+---
+title: "Prefix/Infix/Postfix Notation"
+slug: "polish-notation"
+---
+
+The expression $5+\large{8\over{3-1}}$ clearly has a value of 9. It
+is written in *infix* notation as $5+8/(3-1)$. The value of an *infix*
+expression is well-defined because there is a well-established order of
+precedence in mathematics: we first evaluate the parentheses (3−1=2);
+then, because division has higher precedence than addition, we next do
+8/2=4; and finally 5+4=9. The order of precedence is often given the
+mnemonic **PEMDAS**: **p**arentheses, **e**xponentiation,
+**m**ultiplication/**d**ivision, and **a**ddition/**s**ubtraction.
+Multiplication and division have the same level of precedence; addition
+and subtraction also have the same level of precedence. Terms with equal
+precedence are evaluated from left-to-right.
+
+The algorithm to evaluate an *infix* expression is complex, as it must
+address the order of precedence. Two alternative notations have been
+developed which lend themselves to simple computer algorithms for
+evaluating expressions. In *prefix* notation, each operator is placed
+before its operands. The expression above would be:
+
+```python
++ 5 / 8 - 3 1
+```
+
+In *postfix* notation, each operator is placed after its operands. The
+expression above is:
+
+```python
+5 8 3 1 - / +
+```
+
+In *prefix* and *postfix* notations, there is no notion of order of
+precedence, nor are there any parentheses. The evaluation is the same
+regardless of the operators.
+
+Problems in this category ask to convert between prefix, infix, and
+postfix, or to evaluate an expression in prefix or postfix.
+
+## Converting Expressions
+
+An algorithm for converting from infix to prefix (or postfix) is as
+follows:
+
+1. Fully parenthesize the infix expression. It should now consist solely of "terms": a binary operator sandwiched between two operands.
+2. Write down the operands in the same order that they appear in the infix expression.
+3. Look at each term in the infix expression in the order that one would evaluate them — innermost parenthesis first, then left to right among terms at the same depth.
+4. For each term, write down the operator before (prefix) or after (postfix) the operands.
+
+To convert from prefix (or postfix) to infix, make repeated scans
+through the expression. Each scan, find an operator with two adjacent
+operands and replace it with a parenthesized infix expression. This is
+not the most efficient algorithm, but works well for a human.
+
+A quick check for determining whether a conversion is correct is to
+convert the result back into the original format.
+
+## Context
+
+*Prefix* and *postfix* notation are also known as
+[*Polish* and *Reverse Polish* notation](https://en.wikipedia.org/wiki/Polish_notation),
+respectively.
+
+## Examples
+
+### Infix to Prefix
+
+Converting $X = \left(AB - {C \over D}\right)^E$ from infix to prefix:
+
+| Step | Expression |
+|------|-----------|
+| Fully parenthesized | `(X = (((A * B) - (C / D)) ↑ E))` |
+| Operands | `X A B C D E` |
+| Apply `*` | `X  * A B  C D E` |
+| Apply `/` | `X  * A B  / C D  E` |
+| Apply `-` | `X  - * A B / C D  E` |
+| Apply `↑` | `X  ↑ - * A B / C D E` |
+| Apply `=` | `= X ↑ - * A B / C D E` |
+
+### Infix to Postfix
+
+Converting $X = \left(AB - {C \over D}\right)^E$ from infix to postfix:
+
+| Step | Expression |
+|------|-----------|
+| Fully parenthesized | `(X = (((A * B) - (C / D)) ↑ E))` |
+| Operands | `X A B C D E` |
+| Apply `*` | `X  A B *  C D E` |
+| Apply `/` | `X  A B *  C D /  E` |
+| Apply `-` | `X  A B * C D / -  E` |
+| Apply `↑` | `X  A B * C D / - E ↑` |
+| Apply `=` | `X A B * C D / - E ↑ =` |
+
+### Prefix to Infix
+
+Converting $\left(3 \times 4 + {8 \over 2}\right)^{(7-5)}$ from its
+prefix representation to infix:
+
+| Step | Expression |
+|------|-----------|
+| Start | `↑ + * 3 4 / 8 2 - 7 5` |
+| Apply `* 3 4` | `↑ + (3*4) / 8 2 - 7 5` |
+| Apply `/ 8 2` | `↑ + (3*4) (8/2) - 7 5` |
+| Apply `+ ...` | `↑ ((3*4)+(8/2)) - 7 5` |
+| Apply `- 7 5` | `↑ ((3*4)+(8/2)) (7-5)` |
+| Apply `↑` | `(((3*4)+(8/2))↑(7-5))` |
+
+### Postfix to Infix
+
+Converting $\left(3 \times 4 + {8 \over 2}\right)^{(7-5)}$ from its
+postfix representation to infix:
+
+| Step | Expression |
+|------|-----------|
+| Start | `3 4 * 8 2 / + 7 5 - ↑` |
+| Apply `3 4 *` | `(3*4) 8 2 / + 7 5 - ↑` |
+| Apply `8 2 /` | `(3*4) (8/2) + 7 5 - ↑` |
+| Apply `... +` | `((3*4)+(8/2)) 7 5 - ↑` |
+| Apply `7 5 -` | `((3*4)+(8/2)) (7-5) ↑` |
+| Apply `↑` | `(((3*4)+(8/2))↑(7-5))` |
+
+## Video Resources
+
+The following YouTube videos show ACSL students and advisors working out
+some previous problems.
+
+<VideoEmbed videoId="lDm08rP_lms" />
+
+<VideoEmbed videoId="4YZdsw2UOpo" />
+
+<VideoEmbed videoId="R-t9-rbJDw8" />
+
+<VideoEmbed videoId="dcc-nXY2L6c" />
+
+<VideoEmbed videoId="lEIPvUqstEY" />
+
+### Other Videos
+
+<VideoEmbed videoId="t7YWDiz8LMY" />
+
+<VideoEmbed videoId="z3VsmufB_QI" />
+
+<VideoEmbed videoId="jos1Flt21is" />
+
+<VideoEmbed videoId="MeRb_1bddWg" />
+
+<VideoEmbed videoId="vq-nUF0G4fI" />

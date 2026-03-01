@@ -1,0 +1,217 @@
+---
+title: "LISP"
+slug: "lisp"
+---
+
+LISP is one of the simplest computer languages in terms of syntax and
+semantics, and also one of the most powerful. It was developed in the
+mid-1950's by John McCarthy at M.I.T. as a "LISt Processing language."
+It has been historically used for virtually all Artificial Intelligence
+programs and is often the environment of choice for applications which
+require a powerful interactive working environment. LISP presents a very
+different way to think about programming from "algorithmic" languages
+such as Python, C++, and Java.
+
+## Syntax
+
+As its name implies, the basis of LISP is a list. One constructs a list
+by enumerating elements inside a pair of parentheses. For example, here
+is a list with four elements (the second element is also a list):
+
+```lisp
+(23 (this is easy) hello 821)
+```
+
+The elements in the list which are not lists are called "atoms." The
+atoms in the list above are: 23, 'this, 'hello, 821, 'easy, and 'is.
+Literals are identified with a single leading quote. Everything in LISP
+is either an atom or a list (but not both). The only exception is "NIL,"
+which is both an atom and a list. It can also be written as `()`.
+
+All statements in LISP are function calls with the following syntax:
+`(function arg1 arg2 arg3 ... argn)`. To evaluate a LISP statement, each
+of the arguments (possibly functions themselves) are evaluated, and then
+the function is invoked with the arguments. For example,
+`(MULT (ADD 2 3) (ADD 1 4 2))` has a value of 35, since `(ADD 2 3)` is 5,
+`(ADD 1 4 2)` is 7, and `(MULT 5 7)` is 35. Some functions have an
+arbitrary number of arguments; others require a fixed number. All
+statements return a value, which is either an atom or a list.
+
+## Basic Functions (SET, SETQ, EVAL, ATOM)
+
+We may assign values to variables using the function SET. For example,
+`(SET 'test 6)` would have a value of 6, and would also cause the atom
+`'test` to be bound to the atom 6. The function SETQ is the same as SET,
+but it causes LISP to act as if the first argument was quoted. Observe
+the following examples:
+
+| Statement | Value | Comment |
+|-----------|-------|---------|
+| `(SET 'a (MULT 2 3))` | `6` | a is an atom with a value of 6 |
+| `(SET 'a '(MULT 2 3))` | `(MULT 2 3)` | a is a list with 3 elements |
+| `(SET 'b 'a)` | `a` | b is an atom with a value of the character a |
+| `(SET 'c a)` | `(MULT 2 3)` | c is a list with 3 elements |
+| `(SETQ EX (ADD 3 (MULT 2 5)))` | `13` | The variable EX has a value of 13 |
+| `(SETQ VOWELS '(A E I O U))` | `(A E I O U)` | VOWELS is a list of 5 elements |
+
+The function EVAL returns the value of its argument after it has been
+evaluated. For example, `(SETQ z '(ADD 2 3))` has a value of the list
+`(ADD 2 3)`; `(EVAL 'z)` has a value of `(ADD 2 3)`; `(EVAL z)` has a
+value of 5 (the binding of z does not change). In this last example, you
+can think of z being "resolved" twice: once because it is an argument to
+a function, and once when EVAL is invoked.
+
+The function ATOM determines whether an item is an atom or a list. It
+returns either `true` or `NIL` for false:
+
+| Statement | Value | Comment |
+|-----------|-------|---------|
+| `(SETQ p '(ADD 1 2 3 4))` | `(ADD 1 2 3 4)` | p is a list with 5 elements |
+| `(ATOM 'p)` | `true` | The argument to ATOM is the atom p |
+| `(ATOM p)` | `NIL` | Because p is not quoted, it is evaluated to the 5-element list. |
+| `(EVAL p)` | `10` | The argument to EVAL is the value of p; the value of p is 10. |
+
+## List Functions (CAR, CDR, CONS, REVERSE)
+
+The two most famous LISP functions are CAR and CDR (pronounced:
+"could-er"), named after registers of a now long-forgotten IBM machine
+on which LISP was first developed. The function `(CAR x)` returns the
+first item of the list x; `(CDR x)` returns the list without its first
+element. The function CONS takes two arguments, of which the second must
+be a list, and returns a list composed by placing the first argument as
+the first element of the second argument's list. The function REVERSE
+returns a list with its arguments in reverse order.
+
+The CAR and CDR functions are used so extensively to grab specific
+elements that there's a shorthand: `(CADR x)` is the same as
+`(CAR (CDR x))`, which retrieves the second element of list x;
+`(CAADDAR x)` is shorthand for `(CAR (CAR (CDR (CDR (CAR x)))))`, and so on.
+
+| Statement | Value |
+|-----------|-------|
+| `(CAR '(This is a list))` | `This` |
+| `(CDR '(This is a list))` | `(is a list)` |
+| `(CONS 'red '(white blue))` | `(red white blue)` |
+| `(SETQ z (CONS '(red white blue) (CDR '(This is a list))))` | `((red white blue) is a list)` |
+| `(REVERSE z)` | `(list a is (red white blue))` |
+| `(CDDAR z)` | `(blue)` |
+
+## Arithmetic Functions (ADD, MULT, ...)
+
+| Function | Result |
+|----------|--------|
+| `(ADD x1 x2 ...)` | sum of all arguments |
+| `(SUB a b)` | a − b |
+| `(MULT x1 x2 ...)` | product of all arguments |
+| `(DIV a b)` | a / b |
+| `(SQUARE a)` | a × a |
+| `(EXP a n)` | a^n^ |
+| `(EQ a b)` | true if a and b are equal, NIL otherwise |
+| `(POS a)` | true if a is positive, NIL otherwise |
+| `(NEG a)` | true if a is negative, NIL otherwise |
+
+Functions ADD, SUB, MULT, and DIV can also be written as their common
+mathematical symbols +, -, *, and /. Here are some examples:
+
+| Statement | Value |
+|-----------|-------|
+| `(ADD (EXP 2 3) (SUB 4 1) (DIV 54 4))` | `24.5` |
+| `(- (* 3 2) (- 12 (+ 1 2 1)))` | `-2` |
+| `(ADD (SQUARE 3) (SQUARE 4))` | `25` |
+
+## User-defined Functions
+
+LISP also allows creating custom functions using the DEF function (also
+written as DEFUN, which is more standard). For example:
+
+```lisp
+(DEF SECOND (args) (CAR (CDR args)))
+```
+
+This defines a function called SECOND which operates on a single
+parameter named "args". It takes the CDR of the parameter and then the
+CAR of that result. So `(SECOND '(a b c d e))` first CDRs the list to
+give `(b c d e)`, then CARs that to return `b`.
+
+Consider the following program fragment:
+
+```lisp
+(SETQ X '(a c s l))
+(DEF WHAT(args) (CONS args (REVERSE (CDR args))))
+(DEF SECOND(args) (CONS (CAR (CDR args)) NIL))
+```
+
+| Statement | Value |
+|-----------|-------|
+| `(WHAT X)` | `((a c s l) l s c)` |
+| `(SECOND X)` | `(c)` |
+| `(SECOND (WHAT X))` | `(l)` |
+| `(WHAT (SECOND X))` | `((c))` |
+
+## Online Interpreters
+
+There are many online LISP interpreters available. The one ACSL uses for
+testing is CLISP, accessible from
+[JDoodle](https://www.jdoodle.com/execute-clisp-online). This interpreter
+is quick and functions are not case sensitive, so `(CAR (CDR x))` and
+`(car (cdr x))` are both legal. Note that the print function converts
+lowercase input to uppercase.
+
+## Sample Problems
+
+Questions from this topic typically present a line of LISP code or a
+short sequence of statements and ask what is the value of the (final)
+statement.
+
+### Problem 1
+
+Evaluate the following expression:
+
+```lisp
+(MULT (ADD 6 5 0) (MULT 5 1 2 2) (DIV 6 (SUB 2 5)))
+```
+
+**Solution:**
+
+```lisp
+(MULT (ADD 6 5 0) (MULT 5 1 2 2) (DIV 6 (SUB 2 5)))
+(MULT 11 20 (DIV 6 -3))
+(MULT 11 20 -2)
+-440
+```
+
+### Problem 2
+
+Evaluate the following expression: `(CDR '((2 (3))(4 (5 6) 7)))`
+
+**Solution:** The CDR function returns the list with the first element
+removed. The first element of the list is `(2 (3))`, so the result is
+`((4 (5 6) 7))`, a list with one element.
+
+### Problem 3
+
+Consider the following program fragment:
+
+```lisp
+(SETQ X '(RI VA FL CA TX))
+(CAR (CDR (REVERSE X)))
+```
+
+What is the value of the CAR expression?
+
+**Solution:** The first statement binds X to the list `'(RI VA FL CA TX)`.
+The REVERSE of this list is `'(TX CA FL VA RI)`, whose CDR is
+`'(CA FL VA RI)`. The CAR of this list is the atom `CA`.
+
+## Video Resources
+
+The following YouTube videos show ACSL students and advisors working out
+some ACSL problems that have appeared in previous contests. Some of the
+videos contain ads; ACSL is not responsible for the ads and does not
+receive compensation in any form for those ads.
+
+<VideoEmbed videoId="jWFgmE279eQ" />
+
+<VideoEmbed videoId="mRpbbss48sw" />
+
+<VideoEmbed videoId="50wj_f51kBM" />
