@@ -1,7 +1,2 @@
-let base = "";
-if (import.meta.env.GITHUB_ACTIONS === "true") {
-  base = "/ACSLContestSite";
-}
-console.log("GITHUB_ACTIONS:", import.meta.env.GITHUB_ACTIONS);
-console.log("base:", base);
-export { base };
+declare const __BASE__: string;
+export const base: string = __BASE__;

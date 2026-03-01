@@ -11,6 +11,7 @@ import rehypeKatex from "rehype-katex";
 import mdx from "@astrojs/mdx";
 
 const isGitHub = process.env.GITHUB_ACTIONS === "true";
+const base = isGitHub ? "/ACSLContestSite" : "";
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,6 +25,9 @@ export default defineConfig({
       alias: {
         "@": "/src",
       },
+    },
+    define: {
+      __BASE__: JSON.stringify(base),
     },
   },
 
