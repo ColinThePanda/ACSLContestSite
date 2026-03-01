@@ -1,9 +1,9 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from "@tailwindcss/vite";
 
-import react from '@astrojs/react';
+import react from "@astrojs/react";
 
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -30,6 +30,8 @@ export default defineConfig({
     mdx({
       remarkPlugins: [remarkMath],
       rehypePlugins: [rehypeKatex],
-    })
+    }),
   ],
+  site: "https://YOUR_USERNAME.github.io",
+  base: "/YOUR_REPO_NAME/",
 });
