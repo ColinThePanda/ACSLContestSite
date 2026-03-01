@@ -32,6 +32,6 @@ export default defineConfig({
       rehypePlugins: [rehypeKatex],
     }),
   ],
-  site: "https://colinthepanda.github.io/ACSLContestSite/",
+  site: "https://colinthepanda.github.io",
   base: "/ACSLContestSite/",
 });
