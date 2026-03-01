@@ -1,5 +1,10 @@
 ---
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 
 interface Topic {
   title: string;
@@ -13,24 +18,31 @@ interface Props {
 }
 
 const { number, topics } = Astro.props;
+// BASE_URL is "/" locally and "/ACSLContestSite/" on GitHub Pages
+// It always has a trailing slash, so don't add one before "topics"
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <div class="mt-8">
   <div class="flex items-center gap-3 mb-4">
-    <span class="text-xs font-bold uppercase tracking-widest text-primary">Contest {number}</span>
+    <span class="text-xs font-bold uppercase tracking-widest text-primary"
+      >Contest {number}</span
+    >
     <div class="flex-1 h-px bg-border"></div>
   </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-    {topics.map((topic) => (
-      <a href={`/topics/${topic.slug}`}>
-        <Card className="hover:border-primary transition-colors cursor-pointer">
+    {
+      topics.map((topic) => (
+        <a href={`${base}/topics/${topic.slug}`}>
+          <Card className="hover:border-primary transition-colors cursor-pointer">
             <CardHeader>
-            <CardTitle className="text-sm">{topic.title}</CardTitle>
-            <CardDescription>{topic.description}</CardDescription>
+              <CardTitle className="text-sm">{topic.title}</CardTitle>
+              <CardDescription>{topic.description}</CardDescription>
             </CardHeader>
-        </Card>
+          </Card>
         </a>
-    ))}
+      ))
+    }
   </div>
 </div>

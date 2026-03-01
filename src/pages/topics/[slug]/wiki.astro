@@ -6,7 +6,6 @@ import VideoEmbed from "@/components/topic/VideoEmbed.astro";
 
 export async function getStaticPaths() {
     const topics = await getCollection("topics");
-    console.log("IDs:", topics.map(e => e.id));
     return contests.flatMap(c =>
         c.topics.map(t => {
             const entry = topics.find(e => e.id === t.slug) ?? null;
