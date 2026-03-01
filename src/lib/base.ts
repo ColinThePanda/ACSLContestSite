@@ -1,2 +1,1 @@
-declare const __BASE__: string;
-export const base: string = __BASE__;
+export const base = import.meta.env.BASE_URL.replace(/\/$/, "");
