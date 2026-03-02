@@ -2,6 +2,7 @@
 title: "Boolean Algebra"
 slug: "boolean-algebra"
 ---
+import { base } from '@/lib/base.ts';
 
 *Boolean algebra* is the branch of algebra in which the values of the
 variables and constants have exactly two values: *true* and *false*,
@@ -100,8 +101,8 @@ Both the conditional statement `s < 100` and the Boolean expression
 `(x % 2 == 0) and (x % 3 != 0)` evaluate to *true* or *false*.
 
 - For computer scientists, Boolean algebra is the basis for digital
-  circuits that make up a computer's hardware. The [Digital
-  Electronics](/digital-electronics) category concerns a graphical
+  circuits that make up a computer's hardware. The <a href={`${base}/topics/digital-electronics`}> Digital
+  Electronics</a> category concerns a graphical
   representation of a circuit. That circuit is typically easiest to
   understand and evaluate by converting it to its Boolean algebra
   representation.

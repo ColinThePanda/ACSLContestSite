@@ -15,16 +15,16 @@ This category concentrates on four of the most basic structures:
 queues**. Questions will cover these data structures and implicit
 algorithms, not specific to implementation language details.
 
-A *stack* is usually used to save information that will need to be
+A _stack_ is usually used to save information that will need to be
 processed later. Items are processed in a "last-in, first-out" (LIFO)
-order. A *queue* is usually used to process items in the order in which
+order. A _queue_ is usually used to process items in the order in which
 requests are generated; a new item is not processed until all items
 currently on the queue are processed. This is also known as "first-in,
-first-out" (FIFO) order. A *binary search tree* is used when one is
+first-out" (FIFO) order. A _binary search tree_ is used when one is
 storing items and needs to be able to efficiently process the operations
 of insertion, deletion, and query (i.e. find out if a particular item is
 found in the list of items and if not, which item is close to the item
-in question). A *priority queue* is used like a binary search tree,
+in question). A _priority queue_ is used like a binary search tree,
 except one cannot delete an arbitrary item, nor can one make an
 arbitrary query. One can only find out or delete the smallest element of
 the list.
@@ -38,7 +38,7 @@ structures.
 
 ## Stacks and Queues
 
-A *stack* supports two operations: PUSH and POP. A command of the form
+A _stack_ supports two operations: PUSH and POP. A command of the form
 PUSH("A") puts the key "A" at the top of the stack; the command
 `X = POP()` removes the top item from the stack and stores its value
 into variable X. If the stack was empty, then X is given the special
@@ -47,7 +47,7 @@ book is placed on the top of the stack (pushed) and a book is removed
 from the top also (popped). Some textbooks call this data structure a
 "push-down stack" or a "LIFO stack".
 
-*Queues* operate just like stacks, except items are removed from the
+_Queues_ operate just like stacks, except items are removed from the
 bottom instead of the top. A command of the form PUSH("A") puts the key
 "A" at the top of the queue; the command `X = POP()` removes the item
 from the bottom of the queue and stores its value into variable X. If
@@ -61,7 +61,7 @@ textbooks refer to this data structure as a "FIFO stack".
 
 Consider the following sequence of 14 operations:
 
-```
+```javascript
 PUSH("A")
 PUSH("M")
 PUSH("E")
@@ -92,7 +92,7 @@ the next item popped regardless of any additional pushes.
 ACSL Contests pre-2018 used a slightly different syntax. Consider the
 following sequence on a stack:
 
-```
+```javascript
 PUSH(A)
 PUSH(B)
 PUSH(C)
@@ -108,12 +108,12 @@ with C; variable X would contain A; and variable Z would contain B.
 
 ## Trees
 
-*Trees*, in general, use the following terminology: the *root* is the
-top node in the tree; *children* are the nodes immediately below a
-*parent* node; *leaves* are the bottom-most nodes on every branch of the
-tree; and *siblings* are nodes that share the same immediate parent.
+_Trees_, in general, use the following terminology: the _root_ is the
+top node in the tree; _children_ are the nodes immediately below a
+_parent_ node; _leaves_ are the bottom-most nodes on every branch of the
+tree; and _siblings_ are nodes that share the same immediate parent.
 
-A *binary search tree* is composed of nodes having three parts:
+A _binary search tree_ is composed of nodes having three parts:
 information (or a key), a pointer to a left child, and a pointer to a
 right child. It has the property that the key at every node is always
 greater than or equal to the key of its left child, and less than the
@@ -122,34 +122,30 @@ key of its right child.
 The following tree is built from the keys A, M, E, R, I, C, A, N in that
 order:
 
-<center>
+<Image src="https://www.categories.acsl.org/wiki/images/thumb/b/bf/Bst-american.svg/400px-Bst-american.svg.png" />
 
-![BST built from AMERICAN](https://www.categories.acsl.org/wiki/images/thumb/b/bf/Bst-american.svg/200px-Bst-american.svg.png)
-
-</center>
-
-The *root* of the resulting tree is the node containing A. Our ACSL
+The _root_ of the resulting tree is the node containing A. Our ACSL
 convention places duplicate keys into the tree as if they were less than
-their equal key. The tree has a *depth* (sometimes called height) of 3
+their equal key. The tree has a _depth_ (sometimes called height) of 3
 because the deepest node is 3 nodes below the root. The root node has a
 depth of 0. Leaf nodes (nodes with no children) are: A, C, I, and N.
-Our ACSL convention is that an *external node* is a place where a new
+Our ACSL convention is that an _external node_ is a place where a new
 node could be attached to the tree. The final tree above has 9 external
-nodes. The tree has an *internal path length* of 15 (the sum of the
-depths of all nodes) and an *external path length* of 31 (the sum of the
+nodes. The tree has an _internal path length_ of 15 (the sum of the
+depths of all nodes) and an _external path length_ of 31 (the sum of the
 depths of all external nodes). To insert N (the last key), 3
-*comparisons* were needed: against A (>), M (>), and R (≤).
+_comparisons_ were needed: against A (>), M (>), and R (≤).
 
-To perform an *inorder* traversal of the tree, recursively traverse by
+To perform an _inorder_ traversal of the tree, recursively traverse by
 first visiting the left child, then the root, then the right child.
 In the tree above, the nodes are visited in order: A, A, C, E, I, M, N,
-R. A *preorder* traversal (root, left, right) visits: A, A, M, E, C, I,
-R, N. A *postorder* traversal (left, right, root) visits: A, C, I, E, N,
+R. A _preorder_ traversal (root, left, right) visits: A, A, M, E, C, I,
+R, N. A _postorder_ traversal (left, right, root) visits: A, C, I, E, N,
 R, M, A. Inorder traversals are typically used to list contents in
 sorted order.
 
 A binary search tree can support insert, delete, and search operations
-efficiently for *balanced* trees. In a tree with 1 million items, one
+efficiently for _balanced_ trees. In a tree with 1 million items, one
 can search for a particular value in about $\log_2 1{,}000{,}000 \approx 20$
 steps. However, consider the binary search tree resulting from inserting
 A, E, I, O, U, Y in order — all letters land on the right side of A,
@@ -193,13 +189,10 @@ end if
 These diagrams illustrate the algorithm. Left: delete I (0 children).
 Middle: delete R (1 child). Right: delete M (2 children).
 
-<center>
-
-![Delete I](https://www.categories.acsl.org/wiki/images/thumb/8/8a/Bst-american-del-i.svg/200px-Bst-american-del-i.svg.png)
-![Delete R](https://www.categories.acsl.org/wiki/images/thumb/8/8c/Bst-american-del-r.svg/200px-Bst-american-del-r.svg.png)
-![Delete M](https://www.categories.acsl.org/wiki/images/thumb/4/4f/Bst-american-del-m.svg/200px-Bst-american-del-m.svg.png)
-
-</center>
+<ImagesH imagePaths={["https://www.categories.acsl.org/wiki/images/thumb/8/8a/Bst-american-del-i.svg/400px-Bst-american-del-i.svg.png",
+"https://www.categories.acsl.org/wiki/images/thumb/3/39/Bst-american-del-r.svg/400px-Bst-american-del-r.svg.png",
+"https://www.categories.acsl.org/wiki/images/thumb/3/3c/Bst-american-del-m.svg/400px-Bst-american-del-m.svg.png"
+]} />
 
 There are also general trees that use the same terminology but have 0 or
 more subnodes accessed with an array or linked list of pointers.
@@ -207,19 +200,19 @@ Pre-order and post-order traversals are possible, but other BST
 algorithms do not apply. Applications include game theory,
 organizational charts, and family trees.
 
-*Balanced* trees minimize searching time when every leaf node has a
-depth within 1 of every other leaf node. *Complete* trees are filled at
-every level and are always balanced. *Strictly binary* trees ensure that
+_Balanced_ trees minimize searching time when every leaf node has a
+depth within 1 of every other leaf node. _Complete_ trees are filled at
+every level and are always balanced. _Strictly binary_ trees ensure that
 every node has either 0 or 2 children.
 
 ## Priority Queues
 
-A *priority queue* is quite similar to a binary search tree, but one can
+A _priority queue_ is quite similar to a binary search tree, but one can
 only delete or retrieve the smallest item. These operations can be done
 in time proportional to $\log_2 n$; retrieving the smallest item takes
 constant time.
 
-The standard implementation uses a *heap* — a binary tree that maintains
+The standard implementation uses a _heap_ — a binary tree that maintains
 two properties: every node is less than or equal to both its children,
 and the tree has no "holes" (all levels are completely filled except the
 bottom level, which is filled left to right).
@@ -229,12 +222,8 @@ upward with its parent until the heap property holds. The heap below was
 built from AMERICAN (left), and the heap on the right shows the state
 after inserting C.
 
-<center>
-
-![Heap from AMERICAN](https://www.categories.acsl.org/wiki/images/thumb/d/dd/Heap-american.svg/220px-Heap-american.svg.png)
-![Heap after inserting C](https://www.categories.acsl.org/wiki/images/thumb/e/ef/Heap-american-insert-c.svg/220px-Heap-american-insert-c.svg.png)
-
-</center>
+<ImagesH imagePaths={["https://www.categories.acsl.org/wiki/images/thumb/d/dd/Heap-american.svg/220px-Heap-american.svg.png",
+"https://www.categories.acsl.org/wiki/images/thumb/e/ef/Heap-american-insert-c.svg/220px-Heap-american-insert-c.svg.png"]}/>
 
 The smallest value is always the root. To delete it, replace it with the
 bottom-most, right-most element, then walk down swapping with the
@@ -251,8 +240,8 @@ while (p is larger than either child)
 end while
 ```
 
-When the smallest item is at the root, the heap is called a *min-heap*.
-A *max-heap* (largest item at root) is also common in practice.
+When the smallest item is at the root, the heap is called a _min-heap_.
+A _max-heap_ (largest item at root) is also common in practice.
 
 ## Sample Problems
 
@@ -261,7 +250,7 @@ A *max-heap* (largest item at root) is also common in practice.
 Consider an initially empty stack. After the following operations are
 performed, what is the value of Z?
 
-```
+```javascript
 PUSH(3)
 PUSH(6)
 PUSH(8)
@@ -283,11 +272,7 @@ letters in the bottom-most row, from left to right?
 **Solution:** The bottom row contains the letters RORN, from left to
 right. Here is the entire heap:
 
-<center>
-
-![Heap from PROGRAMMING](https://www.categories.acsl.org/wiki/images/thumb/6/64/Heap-programming.svg/200px-Heap-programming.svg.png)
-
-</center>
+<Image src="https://www.categories.acsl.org/wiki/images/thumb/6/64/Heap-programming.svg/400px-Heap-programming.svg.png"/>
 
 ### Problem 3
 
@@ -298,11 +283,7 @@ is the internal path length?
 A and M have depth 3. Therefore, the internal path length is
 $2 \times 1 + 2 \times 2 + 2 \times 3 = 12$. Here is the tree:
 
-<center>
-
-![BST from PROGRAM](https://www.categories.acsl.org/wiki/images/thumb/1/10/Bst-program.svg/200px-Bst-program.svg.png)
-
-</center>
+<Image src="https://www.categories.acsl.org/wiki/images/thumb/1/10/Bst-program.svg/400px-Bst-program.svg.png"/>
 
 ## Video Resources
 

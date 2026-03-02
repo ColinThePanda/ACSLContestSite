@@ -3,6 +3,8 @@ import { getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import contests from "@/data/contests.json";
 import VideoEmbed from "@/components/topic/VideoEmbed.astro";
+import Image from "@/components/topic/Image.astro";
+import ImagesH from "@/components/topic/ImagesH.astro";
 import { base } from "@/lib/base";
 
 export async function getStaticPaths() {
@@ -23,6 +25,12 @@ const { entry, topic, contestNumber } = Astro.props;
 const { Content } = entry ? await render(entry) : { Content: null };
 ---
 
+<style>
+  :global(.dark .prose img) {
+    filter: invert(1) hue-rotate(180deg);
+  }
+</style>
+
 <Layout title={topic.title}>
   <div class="max-w-3xl mx-auto">
     <a
@@ -38,7 +46,7 @@ const { Content } = entry ? await render(entry) : { Content: null };
     <div class="prose prose-invert max-w-none">
       {
         Content ? (
-          <Content components={{ VideoEmbed }} />
+          <Content components={{ VideoEmbed, Image, ImagesH }} />
         ) : (
           <p class="text-muted-foreground">Wiki content coming soon.</p>
         )

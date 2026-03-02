@@ -1,0 +1,12 @@
+---
+import Image from "@/components/topic/Image.astro";
+
+interface Props {
+  imagePaths: string[];
+}
+const { imagePaths = [] } = Astro.props;
+---
+
+<div class="flex justify-center space-x-4">
+  {imagePaths.map((path) => <Image src={path} />)}
+</div>
