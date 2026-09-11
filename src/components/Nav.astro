@@ -1,6 +1,6 @@
 ---
-import { Badge } from "@/components/ui/badge";
 import { base } from "@/lib/base";
+import { ModeToggle } from "@/components/DarkModeToggle";
 ---
 
 <nav class="sticky top-0 z-50 border-b border-border bg-background">
@@ -9,7 +9,7 @@ import { base } from "@/lib/base";
       <a href={`${base}/`} class="font-bold text-foreground text-base"
         >ACSL Practice</a
       >
-      <Badge variant="outline">v2.0</Badge>
+      <ModeToggle client:load />
     </div>
   </div>
 </nav>
